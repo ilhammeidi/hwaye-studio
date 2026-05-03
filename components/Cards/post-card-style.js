@@ -67,13 +67,8 @@ const cardsStyles = makeStyles({ uniqId: 'post_card' })((theme, _params, classes
     },
     flexDirection: 'row',
     [`& .${classes.figure}`]: {
-      minWidth: 150,
-      maxWidth: 200,
+      width: 250,
       marginRight: theme.spacing(1),
-      [theme.breakpoints.down('sm')]: {
-        minWidth: 100,
-        maxWidth: 150,
-      },
     },
     [`& .${classes.properties}`]: {
       overflow: 'hidden',

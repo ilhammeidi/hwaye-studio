@@ -1,37 +1,14 @@
 import { makeStyles } from 'tss-react/mui';
+import { darken } from '@mui/material/styles';
 
 const sliderStyle = makeStyles({ uniqId: 'slider' })((theme, _params, classes) => ({
   bannerWrap: {
     position: 'relative',
     display: 'block',
+    overflow: 'hidden'
   },
   slide: {
     position: 'relative',
-    [theme.breakpoints.up('sm')]: {
-      height: 450
-    },
-    [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(15, 0, 5)
-    }
-  },
-  img: {
-    right: '1%',
-    maxWidth: '40%',
-    '& img': {
-      width: '100%',
-    },
-    [theme.breakpoints.up('sm')]: {
-      position: 'absolute',
-      top: 100,
-    },
-    [theme.breakpoints.up('md')]: {
-      right: theme.direction === 'ltr' ? '10%' : 'auto',
-      left: theme.direction === 'ltr' ? 'auto' : '10%',
-      maxWidth: '50%',
-    },
-    [theme.breakpoints.down('sm')]: {
-      margin: theme.spacing(4, 0)
-    }
   },
   inner: {
     display: 'flex',
@@ -40,42 +17,42 @@ const sliderStyle = makeStyles({ uniqId: 'slider' })((theme, _params, classes) =
     [theme.breakpoints.down('lg')]: {
       flexDirection: 'column',
       justifyContent: 'center'
-    }
-  },
-  text: {
-    '& h3': {
-      fontWeight: theme.typography.fontWeightBold,
-      marginBottom: theme.spacing(2)
     },
-    '& h5': {
-      color: theme.palette.text.secondary,
-    }
+    '& img': {
+      width: '100%'
+    },
   },
   slideNav: {
     display: 'flex',
   },
   active: {},
-  btnNav: {
-    textTransform: 'none',
-    height: 'auto',
-    padding: theme.spacing(1),
-    flex: 1,
-    fontWeight: theme.typography.fontWeightRegular,
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    textAlign: 'left',
-    '& strong': {
-      textTransform: 'capitalize',
-      fontSize: 28,
-      display: 'block',
-      fontWeight: theme.typography.fontWeightBold,
+  nav: {
+    position: 'absolute',
+    top: '30%',
+    borderRadius: theme.rounded.small,
+    width: 48,
+    height: 100,
+    padding: 0,
+    minWidth: 0,
+    zIndex: 10,
+    background: theme.palette.primary.main,
+    boxShadow: theme.shadows[3],
+    transform: theme.direction === 'rtl' ? 'scale(-1.6)' : 'scale(1.6)',
+    '&:hover': {
+      background: darken(theme.palette.primary.main, 0.2),
     },
-    [`&.${classes.active}`]: {
-      color: theme.palette.primary.main
+    '& svg': {
+      fill: theme.palette.common.white,
+    },
+    [theme.breakpoints.down('md')]: {
+      display: 'none'
     }
   },
-  divider: {
-    margin: theme.spacing(0, 2)
+  prev: {
+    left: 0,
+  },
+  next: {
+    right: 0,
   }
 }));
 

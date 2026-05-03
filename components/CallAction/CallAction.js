@@ -22,13 +22,13 @@ function CallAction() {
                 {t('about_ready')}
               </Typography>
               <Typography display="block" component="p">
-                Pellentesque ac bibendum tortor. Nulla eget lobortis lacus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec gravida augue mauris, vitae lacinia orci molestie at. Sed sollicitudin posuere velit. 
               </Typography>
             </Grid>
             <Grid item md={3} xs={12}>
               <Grid container alignItems="center">
                 <Button size="large" variant="outlined" color="secondary" href="/contact" className={classes.button}>
-                  {t('btn_contact')}
+                  JOIN DISCORD
                 </Button>
               </Grid>
             </Grid>

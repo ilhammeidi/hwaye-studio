@@ -14,7 +14,16 @@ import navMenu from './data/single';
 import samplePages from './data/sample-pages';
 
 let counter = 0;
-function createData(name, url) {
+function createMenuData(name, url) {
+  counter += 1;
+  return {
+    id: counter,
+    name,
+    url,
+  };
+}
+
+function createSocmedData(name, url) {
   counter += 1;
   return {
     id: counter,
@@ -33,11 +42,18 @@ function NavLink(props) {
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   const [menuList] = useState([
-    createData(navMenu[0], navMenu[0]),
-    createData(navMenu[1], navMenu[1]),
-    createData(navMenu[2], navMenu[2]),
-    createData(navMenu[3], navMenu[3]),
-    createData(navMenu[4], navMenu[4]),
+    createMenuData('Games', navMenu[0]),
+    createMenuData('News', 'about/team'),
+    createMenuData('Studio', navMenu[2]),
+    createMenuData('Career', navMenu[3]),
+    createMenuData('Contact', navMenu[4]),
+  ]);
+  const [socmedList] = useState([
+    createMenuData('instagram', 'https://instagram.com'),
+    createMenuData('youtube', 'https://youtube.com'),
+    createMenuData('github', 'https://discord.com'),
+    createMenuData('twitch', 'https://twitch.com'),
+    createMenuData('twitter', 'https://x.com'),
   ]);
   let flagFixed = false;
 
@@ -66,7 +82,7 @@ function NavLink(props) {
   const handleClose = () => {
     setOpenMenu(false);
   };
-
+  
   return (
     <Fragment>
       { isMobile && (<MobileMenu open={openDrawer} toggleDrawer={handleOpenDrawer} />) }
@@ -105,6 +121,13 @@ function NavLink(props) {
                     menuPrimary={menuList}
                     singleNav={home}
                   />
+                  <div className={classes.socmed}>
+                    {socmedList.map((item, index) => (
+                      <IconButton key={index.toString()} href={item.url} target="_blank">
+                        <i className={`ion-logo-${item.name}`} />
+                      </IconButton>
+                    ))}
+                  </div>
                 </div>
               )}
             </nav>

@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
 import Head from 'next/head';
 import Hidden from '@mui/material/Hidden';
+import PostCard from '~/components/Cards/PostCard';
 import { gql } from '@apollo/client';
 // Use this below for Server Side Render/Translation (SSR)
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -11,9 +13,11 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useSpacing } from '~/theme/common';
 import Header from '~/components/Header';
 import BannerSlider from '~/components/BannerSlider';
+import CallAction from '~/components/CallAction';
 import Feature from '~/components/Feature';
 import Counter from '~/components/Counter';
 import Testimonials from '~/components/Testimonials';
+import FeaturedGames from '~/components/Game/FeaturedGames';
 import Pricing from '~/components/Pricing';
 import Blog from '~/components/Company/Blog';
 import Subscribe from '~/components/Subscribe';
@@ -48,19 +52,23 @@ function Landing(props) {
           <h1>{games[1].name}</h1>
           <p>{games[1].description[0].children[0].text}</p>
           <section className={cx(classes.spaceTop, classes.spaceBottomShort)} id="feature">
-            <Feature />
+            <Container maxWidth="md">
+              <PostCard
+                href="#"
+                img="https://picsum.photos/400"
+                title="Maecenas rutrum dolor sed nisi"
+                desc="Proin pretium arcu eget metus porta consectetur Pellentesque habitant"
+                date="12 Nov 2020"
+                orientation="landscape"
+                type="full"
+              />
+            </Container>
           </section>
-          <section>
-            <Counter dark />
+          <section id="featured">
+            <FeaturedGames />
           </section>
-          <section className={classes.spaceTop} id="testimonials">
-            <Testimonials />
-          </section>
-          <section className={classes.spaceTop} id="pricing">
-            <Pricing />
-          </section>
-          <section className={cx(classes.spaceTop, classes.spaceBottom)} id="blog">
-            <Blog />
+          <section id="call-actions" className={classes.spaceBottomShort}>
+            <CallAction />
           </section>
           <section id="subscribe">
             <Subscribe />

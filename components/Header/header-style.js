@@ -68,9 +68,6 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
     boxShadow: 'none !important',
   },
   headerContent: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     '& nav': {
       transition: 'all 0.3s ease',
       alignItems: 'center',
@@ -96,6 +93,7 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
   active: {},
   navMenu: {
     [theme.breakpoints.up('lg')]: {
+      justifyContent: 'space-between',
       '& > *': {
         margin: theme.spacing(0, 1),
       },
@@ -105,11 +103,16 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
     }
   },
   mainMenu: {
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'flex-end',
     '& > ul': {
       listStyle: 'none',
       position: 'relative',
       padding: 0,
       margin: 0,
+      display: 'flex',
+      alignItems: 'center',
       '& > li': {
         display: 'inline-block',
         position: 'relative',
@@ -339,6 +342,9 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
   menuList: {
     textTransform: 'capitalize',
     fontSize: 14
+  },
+  socmed: {
+    marginLeft: theme.spacing(2)
   }
 }));
 

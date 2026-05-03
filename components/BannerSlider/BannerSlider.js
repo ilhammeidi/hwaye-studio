@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import Typography from '@mui/material/Typography';
 import Hidden from '@mui/material/Hidden';
 import Container from '@mui/material/Container';
+import IconButton from '@mui/material/Button';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Grid from '@mui/material/Grid';
 import ButtonBase from '@mui/material/ButtonBase';
 import Divider from '@mui/material/Divider';
@@ -13,6 +16,7 @@ import useStyles from './slider-style';
 function BannerSlider() {
   const { classes, cx } = useStyles();
   const { classes: text } = useText();
+  const images = ['https://picsum.photos/1920/1080', 'https://picsum.photos/1920/1080', 'https://picsum.photos/1920/1080'];
   const { t } = useTranslation('common');
   const slider = useRef(null);
 
@@ -20,20 +24,11 @@ function BannerSlider() {
   const [curSlide, setCurSlide] = useState(0);
 
   const settings = {
-    dots: false,
+    dots: true,
     arrows: false,
     slidesToShow: 1,
-    infinite: false,
-    autoplay: false,
-    responsive: [
-      {
-        breakpoint: 960,
-        settings: {
-          dots: true,
-          fade: true
-        }
-      }
-    ]
+    infinite: true,
+    autoplay: true,
   };
 
   const handleAfterChange = currentSlide => {
@@ -52,66 +47,31 @@ function BannerSlider() {
     <div className={classes.bannerWrap}>
       {loaded && (
         <div className={classes.carousel}>
-          <Carousel
-            {...settings}
-            ref={slider}
-            afterChange={handleAfterChange}
-          >
-            {[...Array(3)].map((e, index) => (
+          <Carousel ref={slider} {...settings}>
+            {images.map((item, index) => (
               <div key={index.toString()} className={classes.slide}>
                 <div className={classes.inner}>
-                  <Container>
-                    <Grid container>
-                      <Grid item sm={7} lg={6} xs={12}>
-                        <div className={classes.text}>
-                          <h3 className={text.title}>
-                            {t('starter-landing.banner_title')}
-                          </h3>
-                          <Typography variant="h5">
-                            {t('starter-landing.banner_subtitle')}
-                          </Typography>
-                        </div>
-                      </Grid>
-                    </Grid>
-                  </Container>
-                  <div className={classes.img}>
-                    <img src="/images/starter/Illustration.png" alt="illustration" />
-                  </div>
+                  <img src={item} alt="image" />
                 </div>
               </div>
             ))}
           </Carousel>
+          <IconButton
+            className={cx(classes.nav, classes.prev)}
+            onClick={() => slider.current.slickPrev()}
+            size="large"
+          >
+            <ArrowBackIcon />
+          </IconButton>
+          <IconButton
+            className={cx(classes.nav, classes.next)}
+            onClick={() => slider.current.slickNext()}
+            size="large"
+          >
+            <ArrowForwardIcon />
+          </IconButton>
         </div>
       )}
-      <Hidden lgDown>
-        <Container maxWidth="md">
-          <nav className={classes.slideNav}>
-            <ButtonBase
-              className={cx(classes.btnNav, curSlide === 0 ? classes.active : '')}
-              onClick={() => gotoSlide(0)}
-            >
-              <strong>First Slide</strong>
-              Interdum et malesuada fames ac ante
-            </ButtonBase>
-            <Divider className={classes.divider} orientation="vertical" flexItem />
-            <ButtonBase
-              className={cx(classes.btnNav, curSlide === 1 ? classes.active : '')}
-              onClick={() => gotoSlide(1)}
-            >
-              <strong>Second Slide</strong>
-              Interdum et malesuada fames ac ante
-            </ButtonBase>
-            <Divider className={classes.divider} orientation="vertical" flexItem />
-            <ButtonBase
-              className={cx(classes.btnNav, curSlide === 2 ? classes.active : '')}
-              onClick={() => gotoSlide(2)}
-            >
-              <strong>Third Slide</strong>
-              Interdum et malesuada fames ac ante
-            </ButtonBase>
-          </nav>
-        </Container>
-      </Hidden>
     </div>
   );
 }
