@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import uiState from '~/theme/config';
 import Mixed from './Mixed';
+import NavLink from './NavLink';
 import Mega from './Mega';
 import DropList from './DropList';
 import NavScroll from './NavScroll';
@@ -23,6 +24,7 @@ function Main(props) {
       { state.header === 'basic' && <Basic onToggleDark={onToggleDark} onToggleDir={onToggleDir} />}
       { state.header === 'blog' && <Blog onToggleDark={onToggleDark} onToggleDir={onToggleDir} />}
       { state.header === 'hamburger' && <Hamburger home={home} onToggleDark={onToggleDark} onToggleDir={onToggleDir} />}
+      { state.header === 'link' && <NavLink home={home} onToggleDark={onToggleDark} onToggleDir={onToggleDir} />}
     </div>
   );
 }
