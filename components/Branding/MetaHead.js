@@ -36,7 +36,6 @@ const MetaComponent = () => (
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css" />
-    <link href="https://unpkg.com/ionicons@3.0.0/dist/css/ionicons.min.css" rel="stylesheet" />
     {/*  Facebook */}
     <meta property="author" content="oiron" />
     <meta property="og:site_name" content="oiron.indisains.com" />

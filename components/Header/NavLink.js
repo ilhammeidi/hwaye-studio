@@ -49,11 +49,10 @@ function NavLink(props) {
     createMenuData('Contact', navMenu[4]),
   ]);
   const [socmedList] = useState([
-    createMenuData('instagram', 'https://instagram.com'),
-    createMenuData('youtube', 'https://youtube.com'),
-    createMenuData('github', 'https://discord.com'),
-    createMenuData('twitch', 'https://twitch.com'),
-    createMenuData('twitter', 'https://x.com'),
+    createMenuData('discord', 'https://discord.gg/NHmQ7cqmkS'),
+    createMenuData('youtube', 'https://youtube.com/@hwaye_ch'),
+    createMenuData('tiktok', 'https://tiktok.com/@hwaye_ch'),
+    createMenuData('instagram', 'https://instagram.com/hwaye_ch'),
   ]);
   let flagFixed = false;
 
@@ -99,7 +98,7 @@ function NavLink(props) {
         <Container fixed={isDesktop}>
           <div className={classes.headerContent}>
             <nav className={classes.navMenu}>
-              { isMobile && (
+              {/* { isMobile && (
                 <IconButton
                   onClick={handleOpenDrawer}
                   className={cx('hamburger hamburger--spin', classes.mobileMenu, openDrawer && 'is-active')}
@@ -109,22 +108,22 @@ function NavLink(props) {
                     <span className={cx(classes.bar, 'hamburger-inner')} />
                   </span>
                 </IconButton>
-              )}
+              )} */}
               <div className={classes.logo}>
                 <a href={link.starter.home}>
-                  <Logo type="landscape" />
+                  <Logo type="only" />
                 </a>
               </div>
               {isDesktop && (
                 <div className={classes.mainMenu}>
-                  <HeaderMenu
+                  {/* <HeaderMenu
                     menuPrimary={menuList}
                     singleNav={home}
-                  />
+                  /> */}
                   <div className={classes.socmed}>
                     {socmedList.map((item, index) => (
                       <IconButton key={index.toString()} href={item.url} target="_blank">
-                        <i className={`ion-logo-${item.name}`} />
+                        <i className={`fa-brands fa-${item.name}`} />
                       </IconButton>
                     ))}
                   </div>

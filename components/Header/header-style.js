@@ -37,10 +37,11 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
   header: {
     position: 'fixed',
     color: theme.palette.text.primary,
-    background: 'transparent',
+    background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0))',
     boxShadow: 'none',
     transition: 'all 0.3s ease',
     zIndex: 1000,
+
     [`&.${classes.fixed}`]: {
       background: theme.palette.background.paper,
       boxShadow: theme.shadows[2],
@@ -344,7 +345,14 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
     fontSize: 14
   },
   socmed: {
-    marginLeft: theme.spacing(2)
+    marginLeft: theme.spacing(2),
+    '& i': {
+      '&:before': {
+        display: 'inline-block',
+        textRendering: 'auto',
+        WebkitFontSmoothing: 'antialiased'
+      }
+    }
   }
 }));
 

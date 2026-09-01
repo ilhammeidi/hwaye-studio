@@ -2,19 +2,19 @@ module.exports = {
   cyber: {
     palette: {
       primary: {
-        light: '#D1C4E9',
-        main: '#651FFF',
-        dark: '#311B92',
+        light: '#f9eabe',
+        main: '#c9aa4f',
+        dark: '#6a5517',
       },
       secondary: {
-        light: '#84FFFF',
-        main: '#00E5FF',
-        dark: '#006064',
+        light: '#f1c895',
+        main: '#884b02',
+        dark: '#361e00',
       },
       accent: {
-        light: '#F8BBD0',
-        main: '#FF4081',
-        dark: '#D81B60',
+        light: '#f3847c',
+        main: '#b51e12',
+        dark: '#780932',
       }
     }
   },

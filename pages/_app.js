@@ -15,6 +15,7 @@ import appTheme from '../theme/appTheme';
 /* import css vendors */
 import 'react-18-image-lightbox/style.css';
 import '../vendors/animate.css';
+import '../vendors/fontawesome/css/all.min.css';
 import '../vendors/animate-slider.css';
 import '../vendors/hamburger-menu.css';
 import '../vendors/animate-extends.css';

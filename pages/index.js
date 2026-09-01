@@ -25,11 +25,10 @@ import Footer from '~/components/Footer';
 import Corner from '~/components/Utils/Corner';
 import Notification from '~/components/Utils/Notification';
 import brand from '~/public/text/brand';
-import { apolloClient } from '~/lib/apolloClient';
 
 function Landing(props) {
   const { classes, cx } = useSpacing();
-  const { onToggleDark, onToggleDir, games } = props;
+  const { onToggleDark, onToggleDir } = props;
   
   return (
     <React.Fragment>
@@ -49,8 +48,8 @@ function Landing(props) {
           <section id="home">
             <BannerSlider />
           </section>
-          <h1>{games[1].name}</h1>
-          <p>{games[1].description[0].children[0].text}</p>
+          <h1>xxxx</h1>
+          <p>xxxxx</p>
           <section className={cx(classes.spaceTop, classes.spaceBottomShort)} id="feature">
             <Container maxWidth="md">
               <PostCard
@@ -87,26 +86,26 @@ function Landing(props) {
 }
 
 // Use this below for Server Side Render/Translation (SSR)
-export async function getStaticProps({ locale }) {
-  const { data } = await apolloClient.query({
-    query: gql`
-      query {
-        games {
-          name
-          description
-        }
-      }
-    `,
-  });
+// export async function getStaticProps({ locale }) {
+//   const { data } = await apolloClient.query({
+//     query: gql`
+//       query {
+//         games {
+//           name
+//           description
+//         }
+//       }
+//     `,
+//   });
   
-  return {
-    props: {
-      games: data.games,
-      ...await serverSideTranslations(locale, ['common'])
-    },
-    revalidate: 60, // optional ISR
-  };
-}
+//   return {
+//     props: {
+//       games: data.games,
+//       ...await serverSideTranslations(locale, ['common'])
+//     },
+//     revalidate: 60, // optional ISR
+//   };
+// }
 
 // Use this below for Static Site Generation (SSG)
 // const getStaticProps = makeStaticProps(['common']);

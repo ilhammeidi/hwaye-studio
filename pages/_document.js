@@ -18,7 +18,7 @@ class MyDocument extends Document {
             style={{
               position: 'fixed',
               zIndex: 10000,
-              background: '#fafafa',
+              background: '#000',
               width: '100%',
               height: '100%',
             }}
@@ -27,9 +27,11 @@ class MyDocument extends Document {
               style={{
                 position: 'fixed',
                 top: 'calc(50% - 50px)',
-                left: 'calc(50% - 50px)'
+                left: 'calc(50% - 50px)',
+                width: '100px',
+                height: '100px'
               }}
-              src="/images/preloader.gif"
+              src="/images/hwaye-studio-logo-only.png"
               alt="loading"
             />
           </div>
