@@ -18,7 +18,7 @@ export const useSpacing = makeStyles({ uniqId: 'spacing' })(theme => ({
   mainWrap: {
     position: 'relative',
     width: '100%',
-    background: theme.palette.mode === 'dark' ? darken(theme.palette.primary.dark, 0.5) : theme.palette.background.paper,
+    background: theme.palette.mode === 'dark' ? theme.palette.background.default : theme.palette.background.paper,
     [theme.breakpoints.down('md')]: {
       overflow: 'hidden'
     },
@@ -34,7 +34,7 @@ export const useSpacing = makeStyles({ uniqId: 'spacing' })(theme => ({
         transition: 'width 0.5s ease-in',
         overflow: 'hidden',
         '& button': {
-          background: gradient(theme).triple.light,
+          background: theme.palette.primary.dark,
           opacity: 0,
           width: '100%',
           height: '100%',

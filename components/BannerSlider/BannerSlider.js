@@ -16,7 +16,7 @@ import useStyles from './slider-style';
 function BannerSlider() {
   const { classes, cx } = useStyles();
   const { classes: text } = useText();
-  const images = ['https://picsum.photos/1920/1080', 'https://picsum.photos/1920/1080', 'https://picsum.photos/1920/1080'];
+  const images = ['/images/contents/thefish_banner.jpg', '/images/contents/thefracture_banner.jpg'];
   const { t } = useTranslation('common');
   const slider = useRef(null);
 
@@ -24,7 +24,7 @@ function BannerSlider() {
   const [curSlide, setCurSlide] = useState(0);
 
   const settings = {
-    dots: true,
+    dots: false,
     arrows: false,
     slidesToShow: 1,
     infinite: true,

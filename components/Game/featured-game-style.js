@@ -23,7 +23,7 @@ const featuredGameStyle = makeStyles({ uniqId: 'featuredGame' })((theme, _params
         transition: 'width 0.5s ease-in',
         overflow: 'hidden',
         '& button': {
-          background: gradient(theme).triple.light,
+          background: theme.palette.primary.dark,
           opacity: 0,
           width: '100%',
           height: '100%',

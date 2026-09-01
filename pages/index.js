@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Head from 'next/head';
-import Hidden from '@mui/material/Hidden';
 import PostCard from '~/components/Cards/PostCard';
 import { gql } from '@apollo/client';
 // Use this below for Server Side Render/Translation (SSR)
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
 // import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import { useSpacing } from '~/theme/common';
@@ -16,14 +14,8 @@ import BannerSlider from '~/components/BannerSlider';
 import CallAction from '~/components/CallAction';
 import Feature from '~/components/Feature';
 import Counter from '~/components/Counter';
-import Testimonials from '~/components/Testimonials';
 import FeaturedGames from '~/components/Game/FeaturedGames';
-import Pricing from '~/components/Pricing';
-import Blog from '~/components/Company/Blog';
-import Subscribe from '~/components/Subscribe';
 import Footer from '~/components/Footer';
-import Corner from '~/components/Utils/Corner';
-import Notification from '~/components/Utils/Notification';
 import brand from '~/public/text/brand';
 
 function Landing(props) {
@@ -48,8 +40,7 @@ function Landing(props) {
           <section id="home">
             <BannerSlider />
           </section>
-          <h1>xxxx</h1>
-          <p>xxxxx</p>
+          {/* Merch Sections */}
           <section className={cx(classes.spaceTop, classes.spaceBottomShort)} id="feature">
             <Container maxWidth="md">
               <PostCard
@@ -63,23 +54,20 @@ function Landing(props) {
               />
             </Container>
           </section>
-          <section id="featured">
+          {/* <section id="featured">
             <FeaturedGames />
-          </section>
+          </section> */}
           <section id="call-actions" className={classes.spaceBottomShort}>
             <CallAction />
           </section>
-          <section id="subscribe">
-            <Subscribe />
-          </section>
         </main>
-        <Hidden mdDown>
+        {/* <Hidden mdDown>
           <Corner />
-        </Hidden>
+        </Hidden> */}
         <Footer toggleDir={onToggleDir} />
-        <Hidden lgDown>
+        {/* <Hidden lgDown>
           <Notification />
-        </Hidden>
+        </Hidden> */}
       </div>
     </React.Fragment>
   );

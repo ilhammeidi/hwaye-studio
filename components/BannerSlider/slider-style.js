@@ -35,14 +35,14 @@ const sliderStyle = makeStyles({ uniqId: 'slider' })((theme, _params, classes) =
     padding: 0,
     minWidth: 0,
     zIndex: 10,
-    background: theme.palette.primary.main,
+    background: theme.palette.primary.dark,
     boxShadow: theme.shadows[3],
     transform: theme.direction === 'rtl' ? 'scale(-1.6)' : 'scale(1.6)',
     '&:hover': {
       background: darken(theme.palette.primary.main, 0.2),
     },
     '& svg': {
-      fill: theme.palette.common.white,
+      fill: theme.palette.text.primary,
     },
     [theme.breakpoints.down('md')]: {
       display: 'none'

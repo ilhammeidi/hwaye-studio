@@ -24,7 +24,7 @@ function Basic() {
   return (
     <footer className={classes.root}>
       <Container maxWidth="lg">
-        <nav>
+        {/* <nav>
           <ul>
             {menu.map((item, index) => (
               <li key={index.toString()}>
@@ -34,7 +34,7 @@ function Basic() {
               </li>
             ))}
           </ul>
-        </nav>
+        </nav> */}
         <div className={classes.socmed}>
           <IconButton aria-label="FB" className={classes.icon} size="small">
             <i className="ion-social-twitter" />
