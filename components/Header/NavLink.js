@@ -40,7 +40,7 @@ function NavLink(props) {
   const { classes, cx } = useStyles();
   const theme = useTheme();
   const { onToggleDark, onToggleDir, home } = props;
-  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   const [menuList] = useState([
     createMenuData('Games', navMenu[0]),

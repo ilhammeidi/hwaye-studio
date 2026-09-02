@@ -28,10 +28,9 @@ const cardsStyles = makeStyles({ uniqId: 'post_card' })((theme, _params, classes
   },
   desc: {
     whiteSpace: 'initial',
-    WebkitLineClamp: 3,
     WebkitBoxOrient: 'vertical',
     display: '-webkit-box',
-    height: 80,
+    height: 'auto',
     overflow: 'hidden',
     padding: 0,
     fontSize: 16
@@ -42,7 +41,6 @@ const cardsStyles = makeStyles({ uniqId: 'post_card' })((theme, _params, classes
     }
   },
   title: {
-    whiteSpace: 'nowrap',
     width: '100%',
     fontSize: 24,
     fontWeight: theme.typography.fontWeightBold
@@ -102,6 +100,10 @@ const cardsStyles = makeStyles({ uniqId: 'post_card' })((theme, _params, classes
   },
   portrait: {
     flexDirection: 'column',
+    marginBottom: theme.spacing(5),
+    [`& .${classes.action}`]: {
+      padding: theme.spacing(0, 1, 2)
+    },
     [`& .${classes.figure}`]: {
       height: 200,
     },
@@ -109,7 +111,7 @@ const cardsStyles = makeStyles({ uniqId: 'post_card' })((theme, _params, classes
       [theme.breakpoints.down('sm')]: {
         width: '100%'
       }
-    }
+    },
   },
   /* Type */
   full: {

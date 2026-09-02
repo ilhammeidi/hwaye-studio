@@ -38,12 +38,12 @@ const useStyles = makeStyles({ uniqId: 'action' })(theme => ({
       padding: theme.spacing(4, 10),
       margin: theme.spacing(0, 2),
     },
-    [theme.breakpoints.down('sm')]: {
-      marginBottom: theme.spacing(5)
+    [theme.breakpoints.between('sm', 'md')]: {
+      marginBottom: theme.spacing(5),
+      textAlign: 'center'
     },
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(4, 1),
-      textAlign: 'center'
     },
     '& h4': {
       fontWeight: 700,

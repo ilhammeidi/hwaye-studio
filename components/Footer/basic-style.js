@@ -2,7 +2,9 @@ import { makeStyles } from 'tss-react/mui';
 
 const basicStyles = makeStyles({ uniqId: 'basic' })(theme => ({
   root: {
-    marginTop: theme.spacing(15),
+    [theme.breakpoints.up('sm')]: {
+      marginTop: theme.spacing(15),
+    },
     textAlign: 'center',
     '& nav': {
       margin: theme.spacing(6, 0),
@@ -86,9 +88,6 @@ const basicStyles = makeStyles({ uniqId: 'basic' })(theme => ({
     padding: theme.spacing(1.5),
     marginTop: theme.spacing(3),
   },
-  quote: {
-    margin: theme.spacing(4, 1)
-  }
 }));
 
 // TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.

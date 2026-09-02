@@ -89,7 +89,10 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
     },
     '& img': {
       transition: 'all 0.3s ease',
-    }
+    },
+    [theme.breakpoints.down('sm')]: {
+      margin: '0 auto'
+    },
   },
   active: {},
   navMenu: {

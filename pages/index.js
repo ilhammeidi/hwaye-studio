@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Head from 'next/head';
-import PostCard from '~/components/Cards/PostCard';
-import { gql } from '@apollo/client';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+// import { gql } from '@apollo/client';
 // Use this below for Server Side Render/Translation (SSR)
 // Use this below for Static Site Generation (SSG)
 // import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import { useSpacing } from '~/theme/common';
+import Quote from '~/components/Quote';
+import PostCard from '~/components/Cards/PostCard';
 import Header from '~/components/Header';
 import BannerSlider from '~/components/BannerSlider';
 import CallAction from '~/components/CallAction';
@@ -22,6 +25,9 @@ import games from '~/public/api/games';
 function Landing(props) {
   const { classes, cx } = useSpacing();
   const { onToggleDark, onToggleDir } = props;
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   
   return (
     <React.Fragment>
@@ -38,6 +44,11 @@ function Landing(props) {
           home
         />
         <main className={classes.containerWrap}>
+          {isMobile && (
+            <div className={classes.spaceBottomShort}>
+              <Quote />
+            </div>
+          )}
           <section id="home">
             <BannerSlider />
           </section>
@@ -52,7 +63,7 @@ function Landing(props) {
                   title={item.name}
                   desc={item.description}
                   date={item.releaseDate}
-                  orientation="landscape"
+                  orientation={isMobile ? 'portrait' : 'landscape'}
                   type="full"
                 />
               ))}

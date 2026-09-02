@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
+import Quote from '../Quote';
 import { useTranslation } from 'next-i18next';
 import brand from '~/public/text/brand';
 import menu from '../Header/data/single';
@@ -30,23 +33,13 @@ function createMenuData(name, url) {
 function Basic() {
   const { classes } = useStyles();
   const { t } = useTranslation('common');
-
-  const [socmedList] = useState([
-    createMenuData('discord', brand.starter.discordLink),
-    createMenuData('youtube', brand.starter.youtubeLink),
-    createMenuData('tiktok', brand.starter.tiktokLink),
-    createMenuData('instagram', brand.starter.instagram),
-  ]);
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <footer className={classes.root}>
       <Container maxWidth="lg">
-        <div className={classes.quote}>
-          <img src={brand.starter.img} alt="logo" height="100" />
-          <Typography variant="h5" display="block" align="center">
-            {brand.starter.notifMsg}
-          </Typography>
-        </div>
+        {isDesktop && <Quote />}
         {/* <nav>
           <ul>
             {menu.map((item, index) => (
@@ -58,13 +51,6 @@ function Basic() {
             ))}
           </ul>
         </nav> */}
-        <div className={classes.socmed}>
-          {socmedList.map((item, index) => (
-            <IconButton key={index.toString()} href={item.url} target="_blank" className={classes.icon} size="small">
-              <i className={`fa-brands fa-${item.name}`} />
-            </IconButton>
-          ))}
-        </div>
       </Container>
       <div className={classes.copyright}>
         <Copyright />
