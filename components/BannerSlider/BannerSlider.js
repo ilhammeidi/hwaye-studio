@@ -11,12 +11,13 @@ import Divider from '@mui/material/Divider';
 import Carousel from 'react-slick';
 import { useTranslation } from 'next-i18next';
 import { useText } from '~/theme/common';
+import games from '~/public/api/games';
 import useStyles from './slider-style';
 
 function BannerSlider() {
   const { classes, cx } = useStyles();
   const { classes: text } = useText();
-  const images = ['/images/contents/thefish_banner.jpg', '/images/contents/thefracture_banner.jpg'];
+  const images = games.map(game => game.cover);
   const { t } = useTranslation('common');
   const slider = useRef(null);
 
@@ -51,7 +52,9 @@ function BannerSlider() {
             {images.map((item, index) => (
               <div key={index.toString()} className={classes.slide}>
                 <div className={classes.inner}>
-                  <img src={item} alt="image" />
+                  <a href={games[index].steamLink} target="_blank" rel="noopener noreferrer">
+                    <img src={item} alt="game banner" />
+                  </a>
                 </div>
               </div>
             ))}

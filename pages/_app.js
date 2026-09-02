@@ -9,8 +9,7 @@ import rtlPlugin from 'stylis-plugin-rtl';
 import { prefixer } from 'stylis';
 import CssBaseline from '@mui/material/CssBaseline';
 import LoadingBar from 'react-top-loading-bar';
-import { appWithTranslation } from 'next-i18next';
-import lngDetector from '../lib/languageDetector';
+// import { appWithTranslation } from 'next-i18next';
 import appTheme from '../theme/appTheme';
 /* import css vendors */
 import 'react-18-image-lightbox/style.css';
@@ -56,7 +55,7 @@ function MyApp(props) {
   const { Component, pageProps, router } = props; // eslint-disable-line
   const [loading, setLoading] = useState(0);
 
-  const curLang = lngDetector.detect();
+  // const curLang = lngDetector.detect();
 
   const themeName = 'cyber';
   const defaultTheme = 'light';
@@ -67,12 +66,11 @@ function MyApp(props) {
 
   useEffect(() => {
     // Set layout direction
-    const themeDir = curLang === 'ar' ? 'rtl' : 'ltr';
+    const themeDir = 'ltr';
     document.dir = themeDir;
-    document.documentElement.setAttribute('lang', curLang);
 
     // Set color mode and direction
-    if (themeType === 'dark' || curLang === 'ar') {
+    if (themeType === 'dark') {
       setTheme({
         ...appTheme(themeName, themeType || defaultTheme),
         direction: themeDir
@@ -158,4 +156,6 @@ MyApp.propTypes = {
 
 MyApp.getInitialProps = async (appContext) => ({ ...(await App.getInitialProps(appContext)) });
 
-export default appWithTranslation(MyApp);
+// export default appWithTranslation(MyApp);
+
+export default MyApp;

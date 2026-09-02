@@ -4,13 +4,13 @@ import createEmotionServer from '@emotion/server/create-instance';
 import { getInitColorSchemeScript } from '@mui/material/styles';
 import createEmotionCache from '../theme/createEmotionCache';
 import MetaHead from '~/components/branding/MetaHead';
-import i18nextConfig from '../next-i18next.config';
+// import i18nextConfig from '../next-i18next.config';
 
 class MyDocument extends Document {
   render() {
-    const currentLocale = this.props.__NEXT_DATA__.query.locale || i18nextConfig.i18n.defaultLocale;
+    // const currentLocale = this.props.__NEXT_DATA__.query.locale || i18nextConfig.i18n.defaultLocale;
     return (
-      <Html lang={currentLocale} dir={currentLocale === 'ar' ? 'rtl' : 'ltr'}>
+      <Html dir="ltr">
         <MetaHead />
         <body>
           <div
