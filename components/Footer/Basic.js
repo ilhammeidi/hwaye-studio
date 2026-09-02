@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
+import Quote from '../Quote';
 import { useTranslation } from 'next-i18next';
 import brand from '~/public/text/brand';
 import menu from '../Header/data/single';
@@ -17,14 +20,27 @@ function Copyright() {
   );
 }
 
+let counter = 0;
+function createMenuData(name, url) {
+  counter += 1;
+  return {
+    id: counter,
+    name,
+    url,
+  };
+}
+
 function Basic() {
   const { classes } = useStyles();
   const { t } = useTranslation('common');
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <footer className={classes.root}>
       <Container maxWidth="lg">
-        <nav>
+        {isDesktop && <Quote />}
+        {/* <nav>
           <ul>
             {menu.map((item, index) => (
               <li key={index.toString()}>
@@ -34,18 +50,7 @@ function Basic() {
               </li>
             ))}
           </ul>
-        </nav>
-        <div className={classes.socmed}>
-          <IconButton aria-label="FB" className={classes.icon} size="small">
-            <i className="ion-social-twitter" />
-          </IconButton>
-          <IconButton aria-label="TW" className={classes.icon} size="small">
-            <i className="ion-social-facebook" />
-          </IconButton>
-          <IconButton aria-label="IG" className={classes.icon} size="small">
-            <i className="ion-social-instagram" />
-          </IconButton>
-        </div>
+        </nav> */}
       </Container>
       <div className={classes.copyright}>
         <Copyright />

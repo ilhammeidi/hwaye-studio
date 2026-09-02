@@ -1,11 +1,11 @@
 // Enable this code below for Server Side Rendering/Translation (SSR)
-const { i18n } = require('./next-i18next.config')
+// const { i18n } = require('./next-i18next.config')
 const withImages = require('next-images');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = withImages({
   // Enable this code below for Server Side Rendering/Translation (SSR)
-  i18n,
+  // i18n,
   trailingSlash: true,
   images: {
     disableStaticImages: true

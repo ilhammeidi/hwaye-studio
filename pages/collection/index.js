@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 // Use this below for Server Side Render/Translation (SSR)
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+// import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
 // import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import ProfileCards from '~/components/Cards/ProfileCard';
@@ -290,7 +290,7 @@ Collection.propTypes = {
 export default Collection;
 
 // Use this below for Server Side Render/Translation (SSR)
-export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
+// export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
 
 // Use this below for Static Site Generation (SSG)
 // const getStaticProps = makeStaticProps(['common']);

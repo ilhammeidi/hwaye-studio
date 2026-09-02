@@ -12,9 +12,19 @@ import HeaderMenu from './TopNav/LinkNav';
 import useStyles from './header-style';
 import navMenu from './data/single';
 import samplePages from './data/sample-pages';
+import brand from '~/public/text/brand';
 
 let counter = 0;
-function createData(name, url) {
+function createMenuData(name, url) {
+  counter += 1;
+  return {
+    id: counter,
+    name,
+    url,
+  };
+}
+
+function createSocmedData(name, url) {
   counter += 1;
   return {
     id: counter,
@@ -30,14 +40,20 @@ function NavLink(props) {
   const { classes, cx } = useStyles();
   const theme = useTheme();
   const { onToggleDark, onToggleDir, home } = props;
-  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   const [menuList] = useState([
-    createData(navMenu[0], navMenu[0]),
-    createData(navMenu[1], navMenu[1]),
-    createData(navMenu[2], navMenu[2]),
-    createData(navMenu[3], navMenu[3]),
-    createData(navMenu[4], navMenu[4]),
+    createMenuData('Games', navMenu[0]),
+    createMenuData('News', 'about/team'),
+    createMenuData('Studio', navMenu[2]),
+    createMenuData('Career', navMenu[3]),
+    createMenuData('Contact', navMenu[4]),
+  ]);
+  const [socmedList] = useState([
+    createMenuData('discord', brand.starter.discordLink),
+    createMenuData('youtube', brand.starter.youtubeLink),
+    createMenuData('tiktok', brand.starter.tiktokLink),
+    createMenuData('instagram', brand.starter.instagram),
   ]);
   let flagFixed = false;
 
@@ -66,7 +82,7 @@ function NavLink(props) {
   const handleClose = () => {
     setOpenMenu(false);
   };
-
+  
   return (
     <Fragment>
       { isMobile && (<MobileMenu open={openDrawer} toggleDrawer={handleOpenDrawer} />) }
@@ -83,7 +99,7 @@ function NavLink(props) {
         <Container fixed={isDesktop}>
           <div className={classes.headerContent}>
             <nav className={classes.navMenu}>
-              { isMobile && (
+              {/* { isMobile && (
                 <IconButton
                   onClick={handleOpenDrawer}
                   className={cx('hamburger hamburger--spin', classes.mobileMenu, openDrawer && 'is-active')}
@@ -93,18 +109,25 @@ function NavLink(props) {
                     <span className={cx(classes.bar, 'hamburger-inner')} />
                   </span>
                 </IconButton>
-              )}
+              )} */}
               <div className={classes.logo}>
                 <a href={link.starter.home}>
-                  <Logo type="landscape" />
+                  <Logo type="only" />
                 </a>
               </div>
               {isDesktop && (
                 <div className={classes.mainMenu}>
-                  <HeaderMenu
+                  {/* <HeaderMenu
                     menuPrimary={menuList}
                     singleNav={home}
-                  />
+                  /> */}
+                  <div className={classes.socmed}>
+                    {socmedList.map((item, index) => (
+                      <IconButton key={index.toString()} href={item.url} target="_blank">
+                        <i className={`fa-brands fa-${item.name}`} />
+                      </IconButton>
+                    ))}
+                  </div>
                 </div>
               )}
             </nav>

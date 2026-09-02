@@ -1,13 +1,17 @@
 module.exports = {
   starter: {
-    name: 'Starter',
-    desc: 'Verselion Starter - React Starter Template',
-    prefix: 'verselion',
-    footerText: 'Verselion Theme All Rights Reserved 2023',
-    logoText: 'Verselion Theme',
-    projectName: 'Starter Project',
-    url: 'verselion.ux-maestro.com',
-    img: '/static/images/logo.png',
-    notifMsg: 'Donec sit amet nulla sed arcu pulvinar ultricies commodo id ligula.'
+    name: 'Hwaye Studio',
+    desc: 'Some stories don\'t scream. They settle into the cracks of who you were.',
+    prefix: 'hwaye',
+    footerText: 'Hwaye Studio All Rights Reserved 2026',
+    logoText: 'Hwaye Studio',
+    projectName: 'Hwaye Studio',
+    url: 'http://hwaye-studio.com',
+    img: '/images/hwaye-studio-logo.png',
+    notifMsg: 'Some stories don\'t scream. They settle into the cracks of who you were.',
+    discordLink: 'https://discord.gg/NHmQ7cqmkS',
+    youtubeLink: 'https://youtube.com/@hwaye_ch',
+    tiktokLink: 'https://tiktok.com/@hwaye_ch',
+    instagram: 'https://instagram.com/hwaye_ch'
   }
 };

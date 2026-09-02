@@ -31,12 +31,12 @@ function PostCard(props) {
       <div className={classes.properties}>
         <CardContent>
           <div className={classes.text}>
-            <Typography display="block" noWrap variant="h6" className={classes.title}>
+            <Typography display="block" variant="h6" className={classes.title}>
               <Box component="span" display="block" textOverflow="ellipsis" overflow="hidden">
                 {title}
               </Box>
             </Typography>
-            <Typography variant="caption" className={classes.caption}>{date}</Typography>
+            <Typography variant="caption" className={classes.caption}>Release Date: {date}</Typography>
             <Typography display="block" className={classes.desc}>
               <span>
                 {desc}
@@ -45,8 +45,8 @@ function PostCard(props) {
           </div>
         </CardContent>
         <CardActions className={classes.action}>
-          <Button variant="outlined" href={href} className={classes.btn}>
-            {t('btn_read_more')}
+          <Button variant="outlined" size="small" target="_blank" href={href} className={classes.btn}>
+            Visit Steam Page
           </Button>
         </CardActions>
       </div>

@@ -10,7 +10,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useTranslation } from 'next-i18next';
 // Use this below for Server Side Render/Translation (SSR)
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+// import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
 // import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import { useSpacing } from '~/theme/common';
@@ -131,7 +131,7 @@ BlogHome.propTypes = {
 export default BlogHome;
 
 // Use this below for Server Side Render/Translation (SSR)
-export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
+// export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
 
 // Use this below for Static Site Generation (SSG)
 // const getStaticProps = makeStaticProps(['common']);

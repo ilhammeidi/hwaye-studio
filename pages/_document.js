@@ -4,13 +4,13 @@ import createEmotionServer from '@emotion/server/create-instance';
 import { getInitColorSchemeScript } from '@mui/material/styles';
 import createEmotionCache from '../theme/createEmotionCache';
 import MetaHead from '~/components/branding/MetaHead';
-import i18nextConfig from '../next-i18next.config';
+// import i18nextConfig from '../next-i18next.config';
 
 class MyDocument extends Document {
   render() {
-    const currentLocale = this.props.__NEXT_DATA__.query.locale || i18nextConfig.i18n.defaultLocale;
+    // const currentLocale = this.props.__NEXT_DATA__.query.locale || i18nextConfig.i18n.defaultLocale;
     return (
-      <Html lang={currentLocale} dir={currentLocale === 'ar' ? 'rtl' : 'ltr'}>
+      <Html dir="ltr">
         <MetaHead />
         <body>
           <div
@@ -18,7 +18,7 @@ class MyDocument extends Document {
             style={{
               position: 'fixed',
               zIndex: 10000,
-              background: '#fafafa',
+              background: '#000',
               width: '100%',
               height: '100%',
             }}
@@ -27,9 +27,11 @@ class MyDocument extends Document {
               style={{
                 position: 'fixed',
                 top: 'calc(50% - 50px)',
-                left: 'calc(50% - 50px)'
+                left: 'calc(50% - 50px)',
+                width: '100px',
+                height: '100px'
               }}
-              src="/images/preloader.gif"
+              src="/images/hwaye-studio-logo-only.png"
               alt="loading"
             />
           </div>

@@ -7,7 +7,7 @@ import Head from 'next/head';
 import { useSpacing } from '~/theme/common';
 import brand from '~/public/text/brand';
 // Use this below for Server Side Render/Translation (SSR)
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+// import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
 // import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import Header from '~/components/Header';
@@ -71,7 +71,7 @@ Faq.propTypes = {
 export default Faq;
 
 // Use this below for Server Side Render/Translation (SSR)
-export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
+// export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
 
 // Use this below for Static Site Generation (SSG)
 // const getStaticProps = makeStaticProps(['common']);

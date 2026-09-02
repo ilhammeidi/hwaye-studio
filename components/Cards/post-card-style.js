@@ -22,20 +22,18 @@ const cardsStyles = makeStyles({ uniqId: 'post_card' })((theme, _params, classes
     height: '100%'
   },
   action: {
-    padding: theme.spacing(0, 2, 2),
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(0, 3, 2)
     }
   },
   desc: {
     whiteSpace: 'initial',
-    WebkitLineClamp: 3,
     WebkitBoxOrient: 'vertical',
     display: '-webkit-box',
-    height: 80,
+    height: 'auto',
     overflow: 'hidden',
     padding: 0,
-    fontSize: 18
+    fontSize: 16
   },
   text: {
     [theme.breakpoints.up('sm')]: {
@@ -43,7 +41,6 @@ const cardsStyles = makeStyles({ uniqId: 'post_card' })((theme, _params, classes
     }
   },
   title: {
-    whiteSpace: 'nowrap',
     width: '100%',
     fontSize: 24,
     fontWeight: theme.typography.fontWeightBold
@@ -55,6 +52,7 @@ const cardsStyles = makeStyles({ uniqId: 'post_card' })((theme, _params, classes
   },
   btn: {
     color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.main,
+    fontSize: 12,
     [theme.breakpoints.up('sm')]: {
       minWidth: 200,
     }
@@ -67,13 +65,8 @@ const cardsStyles = makeStyles({ uniqId: 'post_card' })((theme, _params, classes
     },
     flexDirection: 'row',
     [`& .${classes.figure}`]: {
-      minWidth: 150,
-      maxWidth: 200,
+      width: 300,
       marginRight: theme.spacing(1),
-      [theme.breakpoints.down('sm')]: {
-        minWidth: 100,
-        maxWidth: 150,
-      },
     },
     [`& .${classes.properties}`]: {
       overflow: 'hidden',
@@ -107,6 +100,10 @@ const cardsStyles = makeStyles({ uniqId: 'post_card' })((theme, _params, classes
   },
   portrait: {
     flexDirection: 'column',
+    marginBottom: theme.spacing(5),
+    [`& .${classes.action}`]: {
+      padding: theme.spacing(0, 1, 2)
+    },
     [`& .${classes.figure}`]: {
       height: 200,
     },
@@ -114,7 +111,7 @@ const cardsStyles = makeStyles({ uniqId: 'post_card' })((theme, _params, classes
       [theme.breakpoints.down('sm')]: {
         width: '100%'
       }
-    }
+    },
   },
   /* Type */
   full: {

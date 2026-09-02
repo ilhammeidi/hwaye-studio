@@ -37,10 +37,11 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
   header: {
     position: 'fixed',
     color: theme.palette.text.primary,
-    background: 'transparent',
+    background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0))',
     boxShadow: 'none',
     transition: 'all 0.3s ease',
     zIndex: 1000,
+
     [`&.${classes.fixed}`]: {
       background: theme.palette.background.paper,
       boxShadow: theme.shadows[2],
@@ -68,9 +69,6 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
     boxShadow: 'none !important',
   },
   headerContent: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     '& nav': {
       transition: 'all 0.3s ease',
       alignItems: 'center',
@@ -91,11 +89,15 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
     },
     '& img': {
       transition: 'all 0.3s ease',
-    }
+    },
+    [theme.breakpoints.down('sm')]: {
+      margin: '0 auto'
+    },
   },
   active: {},
   navMenu: {
     [theme.breakpoints.up('lg')]: {
+      justifyContent: 'space-between',
       '& > *': {
         margin: theme.spacing(0, 1),
       },
@@ -105,11 +107,16 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
     }
   },
   mainMenu: {
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'flex-end',
     '& > ul': {
       listStyle: 'none',
       position: 'relative',
       padding: 0,
       margin: 0,
+      display: 'flex',
+      alignItems: 'center',
       '& > li': {
         display: 'inline-block',
         position: 'relative',
@@ -339,6 +346,16 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
   menuList: {
     textTransform: 'capitalize',
     fontSize: 14
+  },
+  socmed: {
+    marginLeft: theme.spacing(2),
+    '& i': {
+      '&:before': {
+        display: 'inline-block',
+        textRendering: 'auto',
+        WebkitFontSmoothing: 'antialiased'
+      }
+    }
   }
 }));
 

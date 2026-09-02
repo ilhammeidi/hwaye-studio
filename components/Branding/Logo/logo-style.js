@@ -25,21 +25,18 @@ const useStyles = makeStyles({ uniqId: 'logo' })(theme => ({
   small: {
     fontSize: 16,
     '& img': {
-      maxWidth: 34,
       height: 34
     }
   },
   medium: {
     fontSize: 18,
     '& img': {
-      maxWidth: 54,
       height: 54
     }
   },
   large: {
     fontSize: 28,
     '& img': {
-      maxWidth: 64,
       height: 64
     }
   }
