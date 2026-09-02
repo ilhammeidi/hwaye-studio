@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
@@ -17,13 +17,36 @@ function Copyright() {
   );
 }
 
+let counter = 0;
+function createMenuData(name, url) {
+  counter += 1;
+  return {
+    id: counter,
+    name,
+    url,
+  };
+}
+
 function Basic() {
   const { classes } = useStyles();
   const { t } = useTranslation('common');
 
+  const [socmedList] = useState([
+    createMenuData('discord', brand.starter.discordLink),
+    createMenuData('youtube', brand.starter.youtubeLink),
+    createMenuData('tiktok', brand.starter.tiktokLink),
+    createMenuData('instagram', brand.starter.instagram),
+  ]);
+
   return (
     <footer className={classes.root}>
       <Container maxWidth="lg">
+        <div className={classes.quote}>
+          <img src={brand.starter.img} alt="logo" height="100" />
+          <Typography variant="h5" display="block" align="center">
+            {brand.starter.notifMsg}
+          </Typography>
+        </div>
         {/* <nav>
           <ul>
             {menu.map((item, index) => (
@@ -36,15 +59,11 @@ function Basic() {
           </ul>
         </nav> */}
         <div className={classes.socmed}>
-          <IconButton aria-label="FB" className={classes.icon} size="small">
-            <i className="ion-social-twitter" />
-          </IconButton>
-          <IconButton aria-label="TW" className={classes.icon} size="small">
-            <i className="ion-social-facebook" />
-          </IconButton>
-          <IconButton aria-label="IG" className={classes.icon} size="small">
-            <i className="ion-social-instagram" />
-          </IconButton>
+          {socmedList.map((item, index) => (
+            <IconButton key={index.toString()} href={item.url} target="_blank" className={classes.icon} size="small">
+              <i className={`fa-brands fa-${item.name}`} />
+            </IconButton>
+          ))}
         </div>
       </Container>
       <div className={classes.copyright}>

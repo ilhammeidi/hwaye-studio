@@ -83,13 +83,13 @@ export const useSpacing = makeStyles({ uniqId: 'spacing' })(theme => ({
     }
   },
   spaceBottomShort: {
-    marginBottom: sectionMargin(6),
+    marginBottom: sectionMargin(4),
     [theme.breakpoints.down('lg')]: {
       marginBottom: sectionMargin(2.4)
     }
   },
   spaceTopShort: {
-    marginTop: sectionMargin(6),
+    marginTop: sectionMargin(3),
     [theme.breakpoints.down('lg')]: {
       marginTop: sectionMargin(2.4)
     }

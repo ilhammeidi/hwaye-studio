@@ -12,6 +12,7 @@ import HeaderMenu from './TopNav/LinkNav';
 import useStyles from './header-style';
 import navMenu from './data/single';
 import samplePages from './data/sample-pages';
+import brand from '~/public/text/brand';
 
 let counter = 0;
 function createMenuData(name, url) {
@@ -49,10 +50,10 @@ function NavLink(props) {
     createMenuData('Contact', navMenu[4]),
   ]);
   const [socmedList] = useState([
-    createMenuData('discord', 'https://discord.gg/NHmQ7cqmkS'),
-    createMenuData('youtube', 'https://youtube.com/@hwaye_ch'),
-    createMenuData('tiktok', 'https://tiktok.com/@hwaye_ch'),
-    createMenuData('instagram', 'https://instagram.com/hwaye_ch'),
+    createMenuData('discord', brand.starter.discordLink),
+    createMenuData('youtube', brand.starter.youtubeLink),
+    createMenuData('tiktok', brand.starter.tiktokLink),
+    createMenuData('instagram', brand.starter.instagram),
   ]);
   let flagFixed = false;
 

@@ -48,7 +48,6 @@ const useStyles = makeStyles({ uniqId: 'action' })(theme => ({
     '& h4': {
       fontWeight: 700,
       color: theme.palette.mode === 'dark' ? theme.palette.secondary.light : theme.palette.secondary.dark,
-      fontFamily: 'Roboto Condensed',
       [theme.breakpoints.down('sm')]: {
         fontSize: 28,
         marginBottom: theme.spacing(2)

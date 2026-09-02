@@ -17,6 +17,7 @@ import Counter from '~/components/Counter';
 import FeaturedGames from '~/components/Game/FeaturedGames';
 import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
+import games from '~/public/api/games';
 
 function Landing(props) {
   const { classes, cx } = useSpacing();
@@ -41,17 +42,20 @@ function Landing(props) {
             <BannerSlider />
           </section>
           {/* Merch Sections */}
-          <section className={cx(classes.spaceTop, classes.spaceBottomShort)} id="feature">
+          <section className={cx(classes.spaceTopShort, classes.spaceBottomShort)} id="feature">
             <Container maxWidth="md">
-              <PostCard
-                href="#"
-                img="https://picsum.photos/400"
-                title="Maecenas rutrum dolor sed nisi"
-                desc="Proin pretium arcu eget metus porta consectetur Pellentesque habitant"
-                date="12 Nov 2020"
-                orientation="landscape"
-                type="full"
-              />
+              {games.map((item, index) => (
+                <PostCard
+                  key={index.toString()}
+                  href={item.steamLink}
+                  img={item.image}
+                  title={item.name}
+                  desc={item.description}
+                  date={item.releaseDate}
+                  orientation="landscape"
+                  type="full"
+                />
+              ))}
             </Container>
           </section>
           {/* <section id="featured">

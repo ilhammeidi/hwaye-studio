@@ -6,6 +6,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { useTranslation } from 'next-i18next';
 import useStyles from './action-style';
+import brand from '~/public/text/brand';
 
 function CallAction() {
   // Translation Function
@@ -19,15 +20,15 @@ function CallAction() {
           <Grid container alignItems="center">
             <Grid item md={9} xs={12}>
               <Typography variant="h4" gutterBottom display="block">
-                {t('about_ready')}
+                Join our Discord community
               </Typography>
               <Typography display="block" component="p">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec gravida augue mauris, vitae lacinia orci molestie at. Sed sollicitudin posuere velit. 
+                Connect with our community, meet fellow gamers, and stay up to date with the latest news and events.
               </Typography>
             </Grid>
             <Grid item md={3} xs={12}>
               <Grid container alignItems="center">
-                <Button size="large" variant="outlined" color="secondary" href="/contact" className={classes.button}>
+                <Button size="large" variant="contained" color="accent" href={brand.starter.discordLink} target="_blank" className={classes.button}>
                   JOIN DISCORD
                 </Button>
               </Grid>

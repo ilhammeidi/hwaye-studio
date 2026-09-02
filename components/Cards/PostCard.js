@@ -45,8 +45,8 @@ function PostCard(props) {
           </div>
         </CardContent>
         <CardActions className={classes.action}>
-          <Button variant="outlined" href={href} className={classes.btn}>
-            {t('btn_read_more')}
+          <Button variant="outlined" size="small" target="_blank" href={href} className={classes.btn}>
+            Visit Steam Page
           </Button>
         </CardActions>
       </div>

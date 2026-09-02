@@ -68,10 +68,8 @@ const basicStyles = makeStyles({ uniqId: 'basic' })(theme => ({
     justifyContent: 'space-between',
   },
   icon: {
-    borderRadius: 0,
     padding: theme.spacing(),
-    background: theme.palette.mode === 'dark' ? theme.palette.primary.main : theme.palette.primary.light,
-    color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
+    background: 'none',
     '&:hover': {
       background: theme.palette.primary.dark,
       color: theme.palette.primary.light
@@ -84,10 +82,12 @@ const basicStyles = makeStyles({ uniqId: 'basic' })(theme => ({
   },
   copyright: {
     display: 'block',
-    color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
-    background: theme.palette.mode === 'dark' ? theme.palette.primary.main : theme.palette.primary.light,
+    color: theme.palette.text.secondary,
     padding: theme.spacing(1.5),
     marginTop: theme.spacing(3),
+  },
+  quote: {
+    margin: theme.spacing(4, 1)
   }
 }));
 
